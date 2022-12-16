@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="css/template.css">
+		<link rel="stylesheet" type="text/css" href="css/nav.css">
+		<link rel="stylesheet" type="text/css" href="css/quiz.css">
+		<title>Carte Père - Quiz</title>
+	</head>
+
+	<body style="background-image: none">
+		<header>
+			<div class="header_top">
+				<div class="wrap">
+					<div class="header_logo">
+						<img src="images/carte_pere.png" width="108" height="90">
+					</div>
+
+					<span id="btnOpen" onclick="openNav()">&#9776;</span>
+
+					<div class="header_menu">
+						<li><a href="index.html">ACCUEIL</a></li>
+						<li>PROPOS</li>
+						<a href="quiz.html"><li style="color: #DD971A; text-decoration: underline;">QUIZ</li></a>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<hr>
+			<section>
+				<div class="game_header">
+					<h1>Bienvenue sur notre quiz</h1>
+					<div class="game_mode">
+						<h3>Mode de jeux: </h3>
+						<form>
+							<select id="game_select_mode">
+								<option value="0">Compatibilité</option>
+								<option value="1">Estimation</option>
+							</select>
+						</form>
+					</div>
+				</div>
+
+				<div class="game_content">
+					<h1 class="game_title"></h1>
+					<h3 class="game_question"></h3>
+						<br><br>
+						<div>
+							<img src="" class="game_img_left" width="250" height="250">
+							<div class="game_choice_list" style="display: inline-block;">
+								<div style="display: block; padding: 20px;">
+									<button class="game_choice"></button>
+									<br>
+									<button class="game_choice"></button>
+								</div>
+							</div>
+							<img src="" class="game_img_right" width="250" height="250">
+						</div>
+				</div>
+
+				<br><br>
+
+				<h3 class="game_response"></h3>
+				<h3 class="game_explication"></h3>	
+			</section>
+		</main>
+		
+		<footer>
+			
+		</footer>
+	</body>
+
+	<script src="js/quiz.js"></script>
+</html>
+
+<!-- 		<form>
+			<select id="compo" onchange="window.open(document.getElementById('compo').value + '.html')">
+				<option value="caa">RAM</option>
+				<option value="caa">CPU</option>
+			</select>
+		</form> -->

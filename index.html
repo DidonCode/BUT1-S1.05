@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="css/template.css">
+		<link rel="stylesheet" type="text/css" href="css/nav.css">
+		<link rel="stylesheet" type="text/css" href="css/transition.css">
+		<title>Carte Père</title>
+	</head>
+
+	<body>
+		<header>
+			<div class="header_top">
+				<div class="wrap">
+					<div class="header_logo">
+						<img src="images/carte_pere.png" width="108" height="90" alt="logo">
+					</div>
+
+					<span id="btnOpen" onclick="openNav()">&#9776;</span>
+
+					<div class="header_menu">
+						<menu>
+							<li><a href="index.html" style="color: #DD971A; text-decoration: underline;">ACCUEIL</a></li>
+							<li><a href="propos.html">PROPOS</a></li>
+							<li><a href="quiz.html">QUIZ</a></li>
+						</menu>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div id="text_presentation">
+			<h1 style="text-shadow: 4px 4px #000000;" id="company"></h1>
+			<h2 style="text-shadow: 4px 4px 0px #000000;" id="company_description"></h2>
+		</div>
+
+ 		<main>
+			<section class="component">
+				<svg width="100%" id="eclispe" style="position: relative; top: -95px; left: 0px;"></svg>
+
+				<h2 class="title_section">LES COMPOSANTS</h2>
+
+				<div style="margin-top: 10%;"></div>
+				
+				<img src="images/presentation.png" id="selection" style="margin: 0 auto; display: block;" alt="selection">
+
+				<div style="margin-top: 250px;"></div>
+				<br><br><br>
+			</section>
+
+			<section class="service">
+				<div class="triangle" style="background-color: #8B8982; position: relative; top: -180px"></div>
+
+				<h2 class="title_section">NOS SERVICES</h2>
+
+				<div style="margin-top: 80px;"></div>
+
+				<div style="text-align: center;">
+					<div class="block">
+						<img src="images/client.png" width="250" height="250" alt="client">
+
+						<div class="content">
+							<h2 class="title">Service Client</h2>
+							<p class="description">Si vous avez un probleme informatique ? contacter nous, <br> nos conseillers pourrons vous aider a distance ou en prenant
+								<br> le controle de votre ordinateur pour corigé votre problème il <br> pourras mếme vous guider sur le remplacement de pièce
+								<br> ce service sera totalement gratuit et ouvert 24h/24h </p>
+						</div>
+					</div>
+
+					<div class="block">
+						<img src="images/ram_icon.png" width="250" height="250" alt="component">
+
+						<div class="content">
+							<h2 class="title">Service Pièce</h2>
+							<p class="description">Si vous avez un probleme informatique ? contacter nous, <br> nos conseillers pourrons vous aider a distance ou en prenant
+								<br> le controle de votre ordinateur pour corigé votre problème il <br> pourras mếme vous guider sur le remplacement de pièce
+								<br> ce service sera totalement gratuit et ouvert 24h/24h </p>
+						</div>
+					</div>
+				</div>
+
+				<div style="margin-top: 80px;"></div>
+				<br><br>
+			</section>
+		</main>
+
+		<footer>
+			<div style="display: block;">
+				<div style="display: inline-block; vertical-align: text-top;">
+					<h3>Nos Partenaires</h3>
+					<menu>
+						<ul class="partner">
+							<li>Alienware</li>
+							<li>Aorus</li>
+							<li>Msi</li>
+							<li>Asus</li>
+							<li>Acer</li>
+						</ul>
+					</menu>
+				</div>
+				
+				<div id="spacer"></div>
+
+				<div style="display: inline-block; vertical-align: text-top;">
+					<h3>Nous contacter</h3>
+					<div style="line-break:anywhere;">
+						<p>carte_pere@support.fr <br> carte_pere_aide@support.fr</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<div id="menu_list" style="z-index: 7;">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+			<br>
+
+			<div class="side_menu">
+				<menu style="list-style-type: none;">
+					<li><a href="index.html" style="color: #DD971A; text-decoration: underline;">ACCUEIL</a></li>
+					<li><a href="propos.html">PROPOS</a></li>
+					<li><a href="quiz.html">QUIZ</a></li>
+				</menu>
+			</div>
+
+			<br><br>
+
+			<h4 style="text-align: center; margin-left: -10px;">COMPOSANTS</h4>
+
+			<div class="side_menu">
+				<menu>
+					<li><a href="ram.html">RAM</a></li>
+					<li><a href="cpu.html">CPU</a></li>
+					<li><a href="gpu.html">GPU</a></li>
+					<li><a href="rom.html">ROM</a></li>
+				</menu>
+			</div>
+		</div>
+		
+		<script src="js/selection.js"></script>
+		<script src="js/navBar.js"></script>
+		<script src="js/eclipse.js"></script>
+		<script src="js/main.js"></script>
+		
+		<script src="js/autoTape.js"></script>
+	</body>
+</html>

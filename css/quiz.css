@@ -1,0 +1,63 @@
+hr{
+	margin: 0;
+	height: 2px;
+	background-color: #242424;
+	border: none;
+}
+
+section{
+	background-color: #8B8982;
+	height: 90%;
+}
+
+select{
+	background-color: #ececec;
+	padding: 10px;
+	font: 400 17px/2em 'Source Sans Pro', sans-serif;
+	color: #414141;
+	border: none;
+	cursor: pointer;
+	max-width:  15em;
+	width: 100%;
+}
+
+.game_header{
+	display: block;
+	padding: 10px;
+}
+
+.game_header h1{
+
+	display: inline-block;
+}
+
+.game_mode{
+	margin-top: -5px;
+	display: inline-block; 
+	float: right; 
+	padding: 10px;
+}
+
+.game_mode h3{
+	display: inline-block; 
+	padding-right: 8px;
+}
+
+.game_mode form{
+	display: inline-block;
+}
+
+.game_content{
+	display: none;
+	text-align: center;
+}
+
+.game_content h1{
+	text-align: center;
+}
+
+.game_choice{
+	padding: 10px;
+	width: 150px;
+}
+
