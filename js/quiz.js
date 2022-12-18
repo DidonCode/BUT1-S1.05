@@ -1,4 +1,7 @@
-var compatibilityImage = ["pci_component.webp", "pci_slot.webp", "ram_component.jpg", "ram_slot.jpg"];
+var compatibilityImageSlot = ["pci_slot.webp", "ram_slot.jpg"];
+var compatibilityImageComponent = ["pci_component.webp", "ram_component.jpg"];
+
+var EstimationImage = ["pci_component.webp", "pci_slot.webp", "ram_component.jpg", "ram_slot.jpg"];
 
 var modeBuf = -1;
 var reponse = false;
@@ -48,11 +51,11 @@ function getCompatibility(){
 
 	var image_left = document.getElementsByClassName("game_img_left")[0];
 	var left_number = getImage(modeBuf);
-	image_left.src = path + compatibilityImage[left_number];
+	image_left.src = path + compatibilityImageSlot[left_number];
 
 	var image_right = document.getElementsByClassName("game_img_right")[0];
 	var right_number = getImage(modeBuf);
-	image_right.src = path + compatibilityImage[right_number];
+	image_right.src = path + compatibilityImageComponent[right_number];
 
 
 	
