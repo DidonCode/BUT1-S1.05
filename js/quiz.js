@@ -1,73 +1,76 @@
 var compatibilityImageSlot = ["pci_slot.webp", "ram_slot.jpg"];
-var compatibilityImageComponent = ["pci_component.webp", "ram_component.jpg"];
+var compatibilityImageComponent = ["pci_cartes graphiques.webp", "ram_ram.jpg"];
 
-var EstimationImage = ["pci_component.webp", "pci_slot.webp", "ram_component.jpg", "ram_slot.jpg"];
+var reponse = false, score = 0, round = 0, isReply = false;
 
-var modeBuf = -1;
-var reponse = false;
-
-game_select_mode.onchange = function(e){
-	console.log("change " + e.target.value);
-	var content = document.getElementsByClassName("game_content")[0];
-	var btn = document.getElementsByClassName("game_choice");
-
-	if(e.target.value == 0){
-		document.getElementsByClassName("game_title")[0].innerHTML = "Compatibilité";
-		content.style.display = "block";
-		btn[0].innerHTML = "OUI";
-		btn[1].innerHTML = "NON";
-		modeBuf = 0;
-
-		getCompatibility();
-	}
-	else if(e.target.value == 1){
-		document.getElementsByClassName("game_title")[0].innerHTML = "Estimation";
-		content.style.display = "block";
-		btn[0].innerHTML = "GAUCHE";
-		btn[1].innerHTML = "DROITE";
-		modeBuf = 1;
-	}
-	else{
-		content.style.display = "none";
+document.getElementsByClassName("game_next")[0].onclick = function(e){
+	document.getElementsByClassName("game_next")[0].style.visibility = "hidden";
+	if(round >= 10){
+		finish();
+	}else{
+		init();
 	}
 }
 
+function init(){
+	var btn = document.getElementsByClassName("game_choice");
+
+	document.getElementsByClassName("game_explication")[0].innerHTML = "";
+	document.getElementsByClassName("game_response")[0].innerHTML = "";
+
+	btn[0].style.backgroundColor = "white";
+	btn[1].style.backgroundColor = "white";
+
+	isReply = false;
+
+	document.getElementsByClassName("game_start")[0].style.display = "none";
+	document.getElementsByClassName("game_block")[0].style.display = "block";
+
+	getCompatibility();
+}
+
+function finish(){
+	document.getElementsByClassName("game_explication")[0].innerHTML = "";
+	document.getElementsByClassName("game_response")[0].innerHTML = "";
+
+	document.getElementsByClassName("game_start")[0].style.display = "inline-block";
+	document.getElementsByClassName("game_block")[0].style.display = "none";
+}
+
 document.getElementsByClassName("game_choice")[0].onclick = function(e){
-	console.log("button click " + e.target.innerHTML);
-	if(modeBuf == 0){
+	if(!isReply){
 		compatibilityVerification(true);
 	}
 }
 
 document.getElementsByClassName("game_choice")[1].onclick = function(e){
-	console.log("button click " + e.target.innerHTML);
-	if(modeBuf == 0){
+	if(!isReply){
 		compatibilityVerification(false);
 	}
 }
 
 function getCompatibility(){
+	document.getElementsByClassName("game_score")[0].innerHTML = "Votre score: " + score;
+	document.getElementsByClassName("game_round")[0].innerHTML = "Tours: " + round + "/10";
+
 	var path = "./images_quiz/compatibility/"
 
 	var image_left = document.getElementsByClassName("game_img_left")[0];
-	var left_number = getImage(modeBuf);
+	var left_number = getImage(compatibilityImageSlot);
 	image_left.src = path + compatibilityImageSlot[left_number];
+	image_left.alt = compatibilityImageSlot[left_number];
 
 	var image_right = document.getElementsByClassName("game_img_right")[0];
-	var right_number = getImage(modeBuf);
+	var right_number = getImage(compatibilityImageComponent);
 	image_right.src = path + compatibilityImageComponent[right_number];
+	image_right.alt = compatibilityImageComponent[right_number];
 
+	//-----------------------------------\\
 
-	
-	while(image_left.src == image_right.src){
-		right_number = getImage(modeBuf);
-		image_right.src = path + compatibilityImage[right_number];
-	}
+	var image_name_left = compatibilityImageSlot[left_number].split('.')[0].split('_');
+	var image_name_right = compatibilityImageComponent[right_number].split('.')[0].split('_');
 
-	var image_name_left = compatibilityImage[left_number].split('.')[0].split('_');
-	var image_name_right = compatibilityImage[right_number].split('.')[0].split('_');
-
-	if(image_name_left[0] && image_name_right[0] && ((image_name_left[1] == "component" && image_name_right[1] == "slot") || (image_name_right[1] == "component" && image_name_left[1] == "slot"))){
+	if(image_name_left[0] == image_name_right[0]){
 		reponse = true;
 	}else{
 		reponse = false;
@@ -75,30 +78,48 @@ function getCompatibility(){
 }
 
 function compatibilityVerification(user){
-	console.log("oui");
+	isReply = true;
 
-	document.getElementsByClassName("game_response")[0].innerHTML = "Vous avez répondu: " + user;
+	document.getElementsByClassName("game_response")[0].innerHTML = "Vous avez répondu: " + getText(user);
 
 	if(user == reponse){
-
+		score++;
+		if(user){
+			document.getElementsByClassName("game_choice")[0].style.backgroundColor = "green";	
+		}else{
+			document.getElementsByClassName("game_choice")[1].style.backgroundColor = "green";
+		}
 	}else{
-
+		if(user){
+			document.getElementsByClassName("game_choice")[0].style.backgroundColor = "red";	
+		}else{
+			document.getElementsByClassName("game_choice")[1].style.backgroundColor = "red";
+		}
 	}
 
-	document.getElementsByClassName("game_explication")[0].innerHTML = "La réponse était " + reponse + " car les slots ";
+	round++;
+
+	document.getElementsByClassName("game_next")[0].style.visibility = "visible";
+
+	var image_name_left = document.getElementsByClassName("game_img_left")[0].alt.split('.')[0].split('_');
+	var image_name_right = document.getElementsByClassName("game_img_right")[0].alt.split('.')[0].split('_');
+
+	document.getElementsByClassName("game_explication")[0].innerHTML = "La réponse était " + getText(reponse) + " car les emplacements " + image_name_left[0] + " ne sont pas celle des " + image_name_right[1];
 }
 
-function getEstimation(){
-
+function getText(bool){
+	if(bool){
+		return "OUI";
+	}else{
+		return "NON";
+	}
 }
 
-function getImage(mode){
-	if(mode == 0){
-		var image = Math.floor(Math.random() * compatibilityImage.length);
-	}
-	else{
-
-	}
-
+function getImage(list){
+	var image = Math.floor(Math.random() * list.length);
 	return image;
+}
+
+document.getElementsByClassName("game_start")[0].onclick = function(e){
+	init();
 }

@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" type="image/x-icon" href="images/carte_pere.ico">
 		<link rel="stylesheet" type="text/css" href="css/template.css">
 		<link rel="stylesheet" type="text/css" href="css/nav.css">
 		<link rel="stylesheet" type="text/css" href="css/transition.css">
@@ -14,7 +15,7 @@
 			<div class="header_top">
 				<div class="wrap">
 					<div class="header_logo">
-						<img src="images/carte_pere.png" width="108" height="90" alt="logo">
+						<a href="index.html"><img src="images/carte_pere.png" width="108" height="90" alt="logo"></a>
 					</div>
 
 					<span id="btnOpen" onclick="openNav()">&#9776;</span>
@@ -22,6 +23,14 @@
 					<div class="header_menu">
 						<menu>
 							<li><a href="index.html" style="color: #DD971A; text-decoration: underline;">ACCUEIL</a></li>
+							<li class="component_submenu"><a>COMPOSANTS</a>
+								<div class="submenu">
+									<div><a href="components/ram.html"><span class="puce">■</span>RAM</a></div>
+									<div><a href="components/cpu.html"><span class="puce">■</span>CPU</a></div>
+									<div><a href="components/gpu.html"><span class="puce">■</span>GPU</a></div>
+									<div><a href="components/rom.html"><span class="puce">■</span>ROM</a></div>
+								</div>
+							</li>
 							<li><a href="propos.html">PROPOS</a></li>
 							<li><a href="quiz.html">QUIZ</a></li>
 						</menu>
@@ -130,19 +139,18 @@
 
 			<div class="side_menu">
 				<menu>
-					<li><a href="ram.html">RAM</a></li>
-					<li><a href="cpu.html">CPU</a></li>
-					<li><a href="gpu.html">GPU</a></li>
-					<li><a href="rom.html">ROM</a></li>
+					<li><a href="components/ram.html">RAM</a></li>
+					<li><a href="components/cpu.html">CPU</a></li>
+					<li><a href="components/gpu.html">GPU</a></li>
+					<li><a href="components/rom.html">ROM</a></li>
 				</menu>
 			</div>
 		</div>
 		
 		<script src="js/selection.js"></script>
-		<script src="js/navBar.js"></script>
 		<script src="js/eclipse.js"></script>
 		<script src="js/main.js"></script>
-		
 		<script src="js/autoTape.js"></script>
+		<script src="js/navBar.js"></script>
 	</body>
 </html>
